@@ -14,7 +14,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onGetRabbits: token => dispatch(getRabbits(token)),
-  onDataSent: token => dispatch(rabbitDataSent(token)),
+  onDataSent: () => dispatch(rabbitDataSent()),
 });
 
 @connect(mapStateToProps, mapDispatchToProps)

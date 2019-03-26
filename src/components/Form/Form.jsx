@@ -134,7 +134,7 @@ class Form extends Component {
   };
 
   render() {
-    const { loading, success } = this.props;
+    const { loading, success, location: { search } } = this.props;
 
     const { controls } = this.state;
 
@@ -168,11 +168,16 @@ class Form extends Component {
       authRedirect = <Redirect to="/" />;
     }
 
+    const info = search
+      ? <div style={{ fontSize: '23px', marginBottom: '20px' }}>Edit Rabbit</div>
+      : <div style={{ fontSize: '23px', marginBottom: '20px' }}>Create new Rabbit</div>;
+
     return (
       <Wrapper>
         { authRedirect }
+        { info }
         <form onSubmit={this.submitHandler}>
-          {form}
+          { form }
           <Button btnType="success">Confirm</Button>
           <Button btnType="danger" clicked={this.onCancelHandler}>Cancel</Button>
         </form>
